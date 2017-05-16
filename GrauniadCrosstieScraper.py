@@ -107,23 +107,18 @@ while (count > 0):
         pdfkit.from_url(crosstieurl, savepath)
         numberprinted += 1
         numberfailed += 1
-    
+    #allow keyboard interrupt, otherwise we're looping til Hell freezes over   
     except (KeyboardInterrupt, SystemExit):
         raise
-    
+    #highly informative error message
     except: #sommit went wrong
         print(choicetext+" "+countasstring+" doesn't exist, or save dir doesn't exist, or some other crap happened!")
-    
+    #decrement count
     count = count - 1
-
-#allow user to break out of prog
-#except KeyboardInterrupt:
-#   pass
-
 
 endtime = time.clock()
 elapsedtime = round((endtime - starttime),2)
-#print("time taken:\nStart time: "+str(starttime)+"\nEnd Time: "+str(endtime)+"\n===================\nTOTAL: "+str(endtime-starttime))
+#print some stats
 print("\n==================================================\nAW DUM! -- Files were saved to "+savepath.rsplit('/', 1)[0]+"\n"+str(numberprinted)+" crosswords were downloaded and converted to PDF in "+str(elapsedtime)+" seconds.\n"+str(numberfailed)+" crosswords failed to print.\nEnjoy!\n==================================================\n")
 
 #TODO: more helpful error messages [fetching URLs and printing to PDF]. Don't overwrite existing crossties. ie. make resumable and/or download custom range. 
