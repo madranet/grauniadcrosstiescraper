@@ -1,3 +1,5 @@
+![](headerimage.jpg)
+
 # Grauniad Cryptic Crosstie Scraper #
 
 This is just a quick hacky script I wrote to grab back issues of The Guardian newspaper's various cryptic crosswords and save them [in PDF format] into a folder on your desktop. 
