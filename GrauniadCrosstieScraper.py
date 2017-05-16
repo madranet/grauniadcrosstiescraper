@@ -131,4 +131,4 @@ elapsedtime = round((endtime - starttime),2)
 #print some stats
 print("\n==================================================\nAW DUM! -- Files were saved to "+savepath.rsplit('/', 1)[0]+"\n"+str(numberprinted)+" crosswords were downloaded and converted to PDF in "+str(elapsedtime)+" seconds.\n"+str(numberfailed)+" crosswords failed to print.\nEnjoy!\n==================================================\n")
 
-#TODO: more helpful error messages [fetching URLs and printing to PDF]. Don't overwrite existing crossties. ie. make resumable and/or download custom range. 
+#TODO: more helpful error messages [fetching URLs and printing to PDF]. Add facility to download custom range. 
