@@ -3,6 +3,7 @@
 #imports
 import pdfkit
 import os.path
+import glob
 import urllib.request
 import time
 
@@ -72,8 +73,11 @@ if not os.path.exists(savedir):
     os.makedirs(savedir)
 #savedir exists. Make sure we're OK to write to it
 else:
+    # alert user that some files already exist
+    #print("Dir contains --> "+str(os.listdir(savedir)))
+    existingpdfs = str(len(glob.glob(savedir+"/*.pdf")))
     while True:
-        shouldwecontinue = input("\n==================================================\nNOTICE: The crossties are going to be saved in: "+savedir+". However that directory already exists! Make sure you're not overwriting something important.\nContinue (Y) or Quit (Q) ?\n==================================================\n")
+        shouldwecontinue = input("\n==================================================\nNOTICE: The crossties are going to be saved in: "+savedir+". However that directory already exists and contains "+existingpdfs+" PDFs! Make sure you're not overwriting something important.\n\nIf these existing files look like they're from a previously interrupted download, I'll try and continue from where I left off.\n\nContinue (Y) or Quit (Q) ?\n==================================================\n")
         if shouldwecontinue == "y" or shouldwecontinue == "Y":
             break
         elif shouldwecontinue == "q" or "shouldwecontinue" == "Q":
@@ -96,6 +100,12 @@ while (count > 0):
 
     #build savepath
     savepath = os.path.join(savedir,filename)
+    
+    #check if it already exists
+    if os.path.exists(savepath):
+        print(filename+" already exists. Skipping...")
+        count = count -1
+        continue
 
     #build URL to crosstie
     crosstieurl = "https://www.theguardian.com/crosswords/"+choiceshortstring+"/"+str(count)+"/print"
@@ -109,7 +119,7 @@ while (count > 0):
         numberfailed += 1
     #allow keyboard interrupt, otherwise we're looping til Hell freezes over   
     except (KeyboardInterrupt, SystemExit):
-        raise
+        quit()
     #highly informative error message
     except: #sommit went wrong
         print(choicetext+" "+countasstring+" doesn't exist, or save dir doesn't exist, or some other crap happened!")
