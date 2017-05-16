@@ -4,7 +4,7 @@
 
 This is just a quick hacky script I wrote to grab back issues of The Guardian newspaper's various cryptic crosswords and save them [in PDF format] into a folder on your desktop. 
 
-The Guardian is rare amongst newspapers in allowing free access to its entire back catalogue of crosswords. It also provides three series of cryptic crosswords, spanning a nice range of difficulty; The Quiptic --which is fairly easy, The Observer Everyman --which is somewhere in the middle and the Guardian Cryptic --which can be quite tough.
+The Guardian is rare amongst newspapers in allowing free access to its entire back catalogue of crosswords. It also provides three series of cryptic crosswords, spanning a nice range of difficulty; The Guardian [Quiptic](https://www.theguardian.com/crosswords/series/quiptic) --which is fairly easy, The [Observer Everyman](https://www.theguardian.com/crosswords/series/everyman) --which is somewhere in the middle and The Guardian [Cryptic](https://www.theguardian.com/crosswords/series/cryptic) --which can be quite tough.
 
 This script allows you to download either [or all] of those three archives.
 
@@ -13,7 +13,7 @@ This script allows you to download either [or all] of those three archives.
 * Python 3. Will need tweaking to run on Python 2,x
 * PDFkit [for saving the crosswords as PDFs]. Install with `pip3 install pdfkit`
 * Internet connection [duh!]
-* Lots of patience. \[See notes below on speed\]
+* Lots of patience. [See notes below on speed]
 
 ### Usage ###
 
